@@ -64,7 +64,7 @@ def search(grid, start, goal, cost):
                 found = True
                 # print(next)
                 print('##### Search successful')
-                return next
+                return f'Gvalue (actions needed): {next[0]} to coordinates {next[1]},{next[2]}'
             else:
                 # expand winning element and add to new open list
                 for i in range(len(delta_actions)):
@@ -74,7 +74,7 @@ def search(grid, start, goal, cost):
 
                     # if they fall into grid
                     if x2 >= 0 and x2 < len(grid) and y2 >= 0 and y2 < len(grid[0]):
-                        
+
                         # if they are not yet checked
                         if closed[x2][y2] == 0 and grid[x2][y2] == 0:
                             g2 = g + cost
@@ -82,5 +82,7 @@ def search(grid, start, goal, cost):
                             # print('append list item')
                             # print([g2, x2, y2])
                             closed[x2][y2] = 1
+for i in range(len(grid)):
+    print(grid[i])
 
 print(search(grid, start, goal, cost))
